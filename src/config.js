@@ -1,1 +1,9 @@
-export const API_URL = import.meta.env.VITE_API_URL || 'https://mrcc-hr-backend.onrender.com/api';
+const API_BASE = "https://mrcc-hr-backend.onrender.com/api";
+
+export const login = async (credentials) => {
+  return fetch(`${API_BASE}/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(credentials),
+  });
+};
